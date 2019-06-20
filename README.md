@@ -1,6 +1,13 @@
 # Frequency Analysis of Words
 
-[TODO. There will be project description]
+A script that displays the top ten most common words in a text file. With the "War and Peace" script works for about 2 minutes.
+
+# Quickstart
+
+```bash
+$ python3 lang_frequency.py /path/to/file/war_and_peace.txt
+['the', 'and', 'to', 'of', 'a', 'he', 'in', 'his', 'that', 'was']
+```
 
 # Project Goals
 
