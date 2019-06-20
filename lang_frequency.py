@@ -1,25 +1,22 @@
 import re
 from sys import argv
-import codecs
+import collections
 
 
 def load_data(filepath):
-    with codecs.open(filepath, 'r', encoding='utf-8', errors='ignore') as text:
+    with open(filepath, "r") as text:
         return text.read()
 
 
 def get_words_from_text(text):
-    words = re.sub(r'[^\w\s]','',text).lower().split()
+    words = re.sub(r"[^\w\s]","",text).lower().split()
     return words
 
 
 def get_word_count(words):
-    word_count = {}
+    word_count = collections.Counter()
     for word in words:
-        if word in word_count:
-            continue
-        else:
-            word_count.update({word: words.count(word)})
+        word_count[word] += 1
     return word_count
 
 
@@ -34,7 +31,7 @@ def get_most_frequent_words(word_count):
 
 def show_top_ten():
     try:
-        filepath = argv[1]
+        filepath = "git.txt"
         text = load_data(filepath)
         words = get_words_from_text(text)
         word_count = get_word_count(words)

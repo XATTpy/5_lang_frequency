@@ -1,6 +1,6 @@
 # Frequency Analysis of Words
 
-A script that displays the top ten most common words in a text file. With the "War and Peace" script works for about 2 minutes.
+A script that displays the top ten most common words in a text file.
 
 # Quickstart
 
