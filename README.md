@@ -6,7 +6,17 @@ A script that displays the top ten most common words in a text file.
 
 ```bash
 $ python3 lang_frequency.py /path/to/file/war_and_peace.txt
-['the', 'and', 'to', 'of', 'a', 'he', 'in', 'his', 'that', 'was']
+10 самых популярных слов в файле:
+the
+and
+to
+of
+a
+he
+in
+his
+that
+was
 ```
 
 # Project Goals

@@ -18,7 +18,7 @@ def get_word_count(words):
     return word_count
 
 
-def get_most_frequent_words(word_count, top=25):
+def get_most_frequent_words(word_count, top=10):
     top_words = collections.Counter(word_count).most_common(top)
     return top_words, top
 
