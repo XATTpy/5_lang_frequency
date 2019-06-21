@@ -4,8 +4,8 @@ import collections
 
 
 def load_data(filepath):
-    with open(filepath, "r") as text:
-        return text.read()
+    with open(filepath, "r") as text_file:
+        return text_file.read()
 
 
 def get_words_from_text(text):
@@ -20,22 +20,27 @@ def get_word_count(words):
     return word_count
 
 
-def get_most_frequent_words(word_count):
+def get_most_frequent_words(word_count, top=69):
     top_ten = []
-    for _ in range(10):
+    for _ in range(top):
         word = max(word_count, key=word_count.get)
         top_ten.append(word)
         word_count.pop(word)
-    return top_ten
+    return top_ten, top
 
 
-def show_top_ten():
+def show_top():
     try:
-        filepath = "git.txt"
+        filepath = argv[1]
         text = load_data(filepath)
         words = get_words_from_text(text)
         word_count = get_word_count(words)
-        print(get_most_frequent_words(word_count))
+
+        word_count, top = get_most_frequent_words(word_count)
+        print("{} самых популярных слов в файле:".format(top))
+        for word in word_count:
+            print(word)
+
     except (IndexError, IsADirectoryError):
         quit("Введите путь к файлу в качестве аргумента при запуске.")
     except FileNotFoundError:
@@ -43,4 +48,4 @@ def show_top_ten():
 
 
 if __name__ == "__main__":
-    show_top_ten()
+    show_top()
