@@ -14,9 +14,7 @@ def get_words_from_text(text):
 
 
 def get_word_count(words):
-    word_count = collections.Counter()
-    for word in words:
-        word_count[word] += 1
+    word_count = collections.Counter(words)
     return word_count
 
 
