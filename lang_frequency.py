@@ -18,7 +18,7 @@ def get_count_of_words(words):
     return count_of_words
 
 
-def get_most_frequent_words(count_of_words, toplist_count=100):
+def get_most_frequent_words(count_of_words, toplist_count=10):
     top_words = count_of_words.most_common(toplist_count)
     return top_words, toplist_count
 
