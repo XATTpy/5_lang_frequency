@@ -13,18 +13,18 @@ def get_words_from_text(text):
     return words
 
 
-def get_word_count(words):
-    word_count = collections.Counter(words)
-    return word_count
+def get_count_of_words(words):
+    count_of_words = collections.Counter(words)
+    return count_of_words
 
 
-def get_most_frequent_words(word_count, top=10):
-    top_words = collections.Counter(word_count).most_common(top)
-    return top_words, top
+def get_most_frequent_words(count_of_words, toplist_count=100):
+    top_words = count_of_words.most_common(toplist_count)
+    return top_words, toplist_count
 
 
-def show_words(word_count, top_words, top):
-    print("{} самых популярных слов в файле:".format(top))
+def show_words(count_of_words, top_words, toplist_count):
+    print("{} самых популярных слов в файле:".format(toplist_count))
     for word, _ in top_words:
         print(word)
 
@@ -34,9 +34,9 @@ if __name__ == "__main__":
         filepath = argv[1]
         text = load_data(filepath)
         words = get_words_from_text(text)
-        word_count = get_word_count(words)
-        top_words, top = get_most_frequent_words(word_count)
-        show_words(word_count, top_words, top)
+        count_of_words = get_count_of_words(words)
+        top_words, toplist_count = get_most_frequent_words(count_of_words)
+        show_words(count_of_words, top_words, toplist_count)
     except (IndexError, IsADirectoryError):
         quit("Введите путь к файлу в качестве аргумента при запуске.")
     except FileNotFoundError:
